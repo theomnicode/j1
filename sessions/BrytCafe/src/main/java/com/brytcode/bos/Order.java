@@ -10,10 +10,14 @@ public class Order {
     private long id;
     private Date orderDate;
     private Set<Product> products = new HashSet<>();
-
+    private Customer customer;
     public Order() {
         id = ++idGenerator;
         orderDate = new Date();
+    }
+    public Order(Customer customer) {
+        this();
+        this.customer = customer;
     }
 
     public long getId() {
@@ -36,4 +40,17 @@ public class Order {
         this.products = products;
     }
 
+    public void addProduct(Product prod){
+        this.products.add(prod);
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", orderDate=" + orderDate +
+                ", products=" + products +
+                ", customer=" + customer +
+                '}';
+    }
 }
