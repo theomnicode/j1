@@ -22,6 +22,18 @@
   	<description></description>
   	<servlet-class>com.brytcode.sampleweb.RegisterEmp</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>TestServlet</servlet-name>
+  	<display-name>TestServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.brytcode.sampleweb.TestServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>FetchEmpServlet</servlet-name>
+  	<display-name>FetchEmpServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.brytcode.sampleweb.FetchEmpServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>FirstServlet</servlet-name>
   	<url-pattern>/welcome</url-pattern>
@@ -37,5 +49,13 @@
   <servlet-mapping>
   	<servlet-name>RegisterEmp</servlet-name>
   	<url-pattern>/empregistration</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TestServlet</servlet-name>
+  	<url-pattern>/TestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FetchEmpServlet</servlet-name>
+  	<url-pattern>/empdetails</url-pattern>
   </servlet-mapping>
 </web-app>

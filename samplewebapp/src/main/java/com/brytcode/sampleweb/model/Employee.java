@@ -5,6 +5,7 @@ public class Employee {
     private String ename;
     private Double salary;
     private int deptNo;
+    private String UUID; 
 
     public int getEmpNo() {
         return empNo;
@@ -37,8 +38,17 @@ public class Employee {
     public void setDeptNo(int deptNo) {
         this.deptNo = deptNo;
     }
+    
+    
+    public String getUUID() {
+		return UUID;
+	}
 
-    @Override
+	public void setUUID(String uUID) {
+		UUID = uUID;
+	}
+
+	@Override
     public String toString() {
         return "Employee{" +
                 "empNo=" + empNo +
