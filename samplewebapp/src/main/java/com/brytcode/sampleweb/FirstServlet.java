@@ -15,9 +15,9 @@ public class FirstServlet extends HttpServlet {
     public FirstServlet() {
         super();
     }
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uname = request.getParameter("username");
-		String password = request.getParameter("password");
+	protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
+		String uname = req.getParameter("username");
+		String password = req.getParameter("password");
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/xml");
 		out.println("<html5><body><h2>Hello "+uname+"</h2></body></html5>");		

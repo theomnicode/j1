@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.brytcode.sampleweb.model.Employee;
 import com.brytcode.sampleweb.repo.EmployeeRepo;
+import com.brytcode.sampleweb.repo.EmployeeRepoImpl;
 
 
 
@@ -33,14 +34,14 @@ public class RegisterEmp extends HttpServlet {
 			uuid=uuid.substring(0, 255);
 		}
 		emp.setUUID(uuid);
-		EmployeeRepo repo = new EmployeeRepo();
+		EmployeeRepo repo = new EmployeeRepoImpl();
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		try {
 			repo.storeEmployee(emp);	
 			HttpSession session = request.getSession();
 			session.setAttribute("EUUID", emp.getUUID());
-			out.write(String.format("<html><body><h2>%s registered successfully</h2><form action='empdetails'><input type='submit' value='Fetch'/></form></body></html>",empName));
+			out.write(String.format("<html><body><h2>%s registered successfully</h2><form action='empdetails.jsp'><input type='submit' value='Fetch'/></form></body></html>",empName));
 		} catch (SQLException e) {		
 			e.printStackTrace();
 			out.write(String.format("<html><body><h2>Can not register %s</h2></body></html>",empName));	

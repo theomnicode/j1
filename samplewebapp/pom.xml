@@ -40,6 +40,13 @@
 			<artifactId>ojdbc11</artifactId>
 			<version>23.3.0.23.09</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

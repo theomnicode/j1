@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.brytcode.sampleweb.model.Employee;
-import com.brytcode.sampleweb.repo.EmployeeRepo;
+import com.brytcode.sampleweb.repo.EmployeeRepoImpl;
+import com.brytcode.sampleweb.repo.PostGresEmployeeRepoImpl;
 
 public class FetchEmpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Cookie[] cookies = request.getCookies();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		HttpSession session = request.getSession();
 		String uuid = session.getAttribute("EUUID").toString();
-		EmployeeRepo empRepo = new EmployeeRepo();
+		PostGresEmployeeRepoImpl empRepo = new PostGresEmployeeRepoImpl();
 		PrintWriter out = response.getWriter();
 		try {
 			Employee emp = empRepo.getEmployee(uuid);
