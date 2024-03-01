@@ -8,10 +8,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.Map;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
     @Autowired
     private EmployeeRepo empRepo;
+    @Autowired
+    @Qualifier("myDepts")
+    private Map<String, String> myDepts;
 
     public EmployeeRepo getEmpRepo() {
         return empRepo;
@@ -23,7 +28,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Employee getEmployee(int empNo) throws SQLException {
-        return empRepo.getEmployee(empNo);
+        Employee empObj = empRepo.getEmployee(empNo);
+        System.out.println(empObj);
+        return empObj;
     }
 
     @Override

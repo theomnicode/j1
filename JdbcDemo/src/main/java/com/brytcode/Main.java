@@ -8,12 +8,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 //@Configuration
 @ComponentScan(basePackages = "com.brytcode")
+@EnableAspectJAutoProxy
 public class Main {
     public static void main(String[] args) {
      /*  *//* Scanner sc = new Scanner(System.in);
@@ -62,13 +64,16 @@ public class Main {
             //ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
             ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Main.class);
             EmployeeService employeeService = applicationContext.getBean("employeeServiceImpl",EmployeeService.class);
-            System.out.println("Enter emp name");
-            String empName = sc.nextLine();
-            System.out.println("Enter salary");
-            double salary = Double.parseDouble(sc.nextLine());
-            System.out.println("Enter deptno");
-            int deptNo = Integer.parseInt(sc.nextLine());
-            employeeService.storeEmployee(empName, salary, deptNo);
+//            System.out.println("Enter emp name");
+//            String empName = sc.nextLine();
+//            System.out.println("Enter salary");
+//            double salary = Double.parseDouble(sc.nextLine());
+//            System.out.println("Enter deptno");
+//            int deptNo = Integer.parseInt(sc.nextLine());
+//            employeeService.storeEmployee(empName, salary, deptNo);
+            employeeService.getEmployee(1);
+
+
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println("Unable to fetch the employee details");

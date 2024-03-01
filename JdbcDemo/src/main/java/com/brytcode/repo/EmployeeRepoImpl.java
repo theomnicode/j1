@@ -10,7 +10,7 @@ import java.sql.*;
 public class EmployeeRepoImpl implements EmployeeRepo{
     public Employee getEmployee(int empNo) throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SYSTEM","Admin123$");
-        PreparedStatement stmt = conn.prepareStatement("SELECT EMPNO,ENAME,SALARY,DEPTNO FROM EMPLOYEE WHERE EMPNO = ?");
+        PreparedStatement stmt = conn.prepareStatement("SELECTEMPNO,ENAME,SALARY,DEPTNO FROM EMPLOYEE WHERE EMPNO = ?");
 
         stmt.setInt(1, empNo);
         ResultSet rs = stmt.executeQuery();
