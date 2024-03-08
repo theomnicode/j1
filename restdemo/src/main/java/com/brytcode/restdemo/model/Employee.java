@@ -1,10 +1,23 @@
 package com.brytcode.restdemo.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="EMPLOYEE")
 public class Employee {
+    @Id
+    @Column(name="EMPNO")
     private int empNo;
+    @Column(name = "ENAME")
     private String ename;
+    @Column(name="SALARY")
     private Double salary;
+    @Column(name="DEPTNO")
     private int deptNo;
+    @Column(name="EMP_UUID")
     private String UUID; 
 
     public int getEmpNo() {
