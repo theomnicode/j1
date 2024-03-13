@@ -19,3 +19,24 @@ eureka:
     instance:
         instance-id: ${spring.application.name}:${INSTANCE_ID:${random.value}}
         prefer-ip-address: true
+resilience4j:
+    circuitbreaker:
+        instances:
+            inventory:
+                failureRateThreshold: 50
+                automaticTransitionFromOpenToHalfOpenEnabled: true
+                waitDurationInOpenState: 10s
+                slidingWindowType: COUNT_BASED
+                slidingWindowSize: 2
+                minimumNumberOfCalls: 1
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+        health:
+            enabled: true
+            show-details: always
+    health:
+        circuitbreakers:
+            enabled: true
