@@ -1,0 +1,42 @@
+services:
+  discovery:
+    image: krishnajvm/discovery:latest
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres  
+  gateway:
+    image: krishnajvm/gateway:latest
+    mem_limit: 512m
+    ports:
+      - "9090:9090"    
+    environment:
+      - EUREKA_URI=http://discovery:8080/eureka  
+    depends_on:
+      - discovery  
+  sales:
+    image: krishnajvm/sales:latest
+    mem_limit: 512m
+    ports:
+      - "8081:8080"
+    environment:
+      - EUREKA_URI=http://discovery:8080/eureka
+    depends_on:
+      - discovery  
+  inventory:
+    image: krishnajvm/inventory:latest
+    mem_limit: 512m
+    ports:
+      - "8082:8080"
+    environment:
+      - EUREKA_URI=http://discovery:8080/eureka    
+    depends_on:
+      - discovery  
+  postgres:
+    image: postgres:11.21-bullseye
+    mem_limit: 512m
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=Admin123$

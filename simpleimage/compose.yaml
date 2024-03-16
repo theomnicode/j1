@@ -1,0 +1,6 @@
+services:
+  simpleimage:
+    image: public.ecr.aws/l6s9v0s4/simpleimage:latest
+    mem_limit: 512m
+    ports:
+      - "9999:9999"

@@ -1,13 +1,13 @@
 server:
-  port: 0
+  port: 8080
 spring:
   application:
     name: inventory
   datasource:
-    url:  jdbc:oracle:thin:@//localhost:1521/xe
-    username: SYSTEM
+    url: jdbc:postgresql://postgres:5432/postgres
+    username: postgres
     password: Admin123$
-    driver-class-name:  oracle.jdbc.OracleDriver
+    driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
       minimum-idle: 5

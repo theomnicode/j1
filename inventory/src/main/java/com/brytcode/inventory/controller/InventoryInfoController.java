@@ -16,6 +16,6 @@ public class InventoryInfoController {
     int port;
     @GetMapping("/info")
     public String getInfo(){
-        return "Welcome to Inventory Service from " + environment.getProperty("local.server.port");
+        return "Welcome to Inventory Service From Port " + environment.getProperty("local.server.port");
     }
 }
